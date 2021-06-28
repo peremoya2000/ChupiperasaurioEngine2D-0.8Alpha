@@ -29,10 +29,10 @@ public class Collision extends Component {
 		this.shape=shape;
 		this.moves=moves;
 		if(shape==CollisionShape.CIRCLE) {
-			if(xSize<ySize) {
-				xSize=ySize;
-			}else {
+			if(xSize>ySize) {
 				ySize=xSize;
+			}else {
+				xSize=ySize;
 			}
 		}
 	}
@@ -87,39 +87,31 @@ public class Collision extends Component {
 		float x= transform.getX();
 		float y= transform.getY();
 		float oXs= other.getxSize();
-		if(Math.abs(oX-x)>oXs*2)return;
+		float oYs= other.getySize();
+		if(Math.abs(oX-x)>oXs+xSize+16)return;
 		switch(other.getShape()) {
 			case CIRCLE:
 				//circle to square
 				if(shape==CollisionShape.SQUARE) {
-					  float testX = oX;
-					  float testY = oY;
-					  
-					  // select edge
-					  if (x+xSize < oX) {
-						  testX = x+xSize;      // right edge
-					  }else if (x-xSize > oX) {
-						  testX = x-xSize;		// left edge
-					  }  		
-					  if (y+ySize < oY) {
-						  testY = y+ySize;     // down edge
-					  }else if (y-ySize > oY) {
-						  testY = y-ySize;		// up edge
-					  }
+					Transform nearestPoint = new Transform();					
+					nearestPoint.setX(Math.max(x-xSize, Math.min(oX, x+xSize)));
+					nearestPoint.setY(Math.max(y-ySize, Math.min(oY, y+ySize)));
+					
+					nearestPoint.subtract(otherTrans);
+					
+					float overlap =oXs-nearestPoint.getLength();
+					if (Float.isNaN(overlap))overlap = 0;
 
-					  // get distance from closest edges
-					  float distX = oX-testX;
-					  float distY = oY-testY;
-					  float distance = (float) Math.sqrt((distX*distX) + (distY*distY));
-					  //System.out.println(distance);
-					  if (distance < oXs) {
-						  collision=true;
-						  if(!moves)return;
-						  transform.setX(((x-oX)/distance)+x);
-						  transform.setY(((y-oY)/distance)+y);
-					  }else {
-						  collision=false;
-					  }
+					if (overlap>0){
+						collision=true;
+						if(moves) {
+							Transform correction = new Transform(x-oX,y-oY).normalize();
+							transform.add(correction);
+						}
+					}else {
+						collision=false;
+					}
+					
 				//circle to circle:
 				}else if(shape==CollisionShape.CIRCLE) {
 					float dist = transform.getDistance(otherTrans);
@@ -138,7 +130,6 @@ public class Collision extends Component {
 			case SQUARE:
 				//square to square
 				if(shape==CollisionShape.SQUARE) {
-					float oYs= other.getySize();
 					if(!(x+xSize<oX-oXs || oX+oXs<x-xSize || y+ySize<oY-oYs || oY+oYs<y-ySize)) {
 						collision=true;
 						if(!moves)return;
@@ -150,9 +141,9 @@ public class Collision extends Component {
 							 }
 						 }else {
 							 if(y<oY-oYs) {
-									y=oY-oYs-ySize-0.1f;
+								y=oY-oYs-ySize-0.1f;
 							 }else if(y>oY+oYs){
-									y=oY+oYs+ySize+0.1f;
+								y=oY+oYs+ySize+0.1f;
 							 }
 						 }
 						transform.setX(x);
@@ -162,46 +153,22 @@ public class Collision extends Component {
 					}
 				//square to circle
 				}else if(shape==CollisionShape.CIRCLE) {
-					  float testX = x;
-					  float testY = y;
-					  float oYs= other.getySize();
+					Transform nearestPoint = new Transform();					
+					nearestPoint.setX(Math.max(oX-oXs, Math.min(x, oX+oXs)));
+					nearestPoint.setY(Math.max(oY-oYs, Math.min(y, oY+oYs)));
+					
+					nearestPoint.subtract(transform);
+					
+					float overlap =xSize-nearestPoint.getLength();
+					if (Float.isNaN(overlap))overlap = 0;
 
-					  // select closest edge
-					  if (x < oX-oXs) {
-						  testX = oX-oXs;      	// left edge
-					  }else if (x > oX+oXs) {
-						  testX = oX+oXs;		// right edge
-					  }  		
-					  if (y < oY-oYs) {
-						  testY = oY-oYs;		// top edge
-					  }else if (y > oY+oYs) {	
-						  testY = oY+oYs;	 	// bottom edge
-					  }
-
-					  // get distance from closest edges
-					  float distX = x-testX;
-					  float distY = y-testY;
-					  float distance = (float) Math.sqrt((distX*distX) + (distY*distY));
-
-					  if (distance < xSize) {
-						  collision=true;
-						  if(!moves)return;
-						  if(Math.abs(distX)>Math.abs(distY)) {
-							  if(x>testX) {
-								  transform.setX(testX+xSize);
-							  }else if(x<testX) {
-								  transform.setX(testX-xSize);
-							  }
-						  }else {
-							  if(y>testY) {
-								  transform.setY(testY+ySize);
-							  }else if(y<testY) {
-								  transform.setY(testY-ySize);
-							  }
-						  }
-					  }else {
-						  collision=false;
-					  }
+					if (overlap>0){
+						collision=true;
+						if (moves) 
+							transform.subtract(nearestPoint.normalize().scale(overlap));
+					}else {
+						collision=false;
+					}
 				}
 				break;
 				

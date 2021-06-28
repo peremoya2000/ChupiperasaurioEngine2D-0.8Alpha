@@ -76,7 +76,6 @@ public class Scene implements Serializable{
 				}
 			}
 			objects.add(guess,obj);
-			System.out.println(guess);
 		}
 	}
 	
