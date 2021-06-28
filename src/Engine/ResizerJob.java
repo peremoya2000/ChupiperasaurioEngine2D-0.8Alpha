@@ -1,13 +1,16 @@
 package Engine;
 
+/**
+ * Handles Window resizing asynchronously
+ * @author Usuario
+ */
 public class ResizerJob extends Job {
 	boolean resizeNeeded;
 	Viewer v;
 	public ResizerJob(Viewer v){
 		super();
 		this.v=v;
-		resizeNeeded=false;
-		
+		resizeNeeded=false;		
 	}
 	
 	@Override

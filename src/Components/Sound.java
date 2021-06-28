@@ -15,6 +15,7 @@ import Engine.GameObject;
 @SuppressWarnings("serial")
 public class Sound extends Component {
 	//SOUNDS MUST BE .WAV
+	//HasMap on sounds added one by one
 	private HashMap<String, Clip> sounds;
 	public Sound(GameObject owner) {
 		super(owner);

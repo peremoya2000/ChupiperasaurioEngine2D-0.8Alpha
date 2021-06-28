@@ -20,6 +20,7 @@ public class SceneManager {
 		this.scenes.put("default", loadedScene);		
 	}
 	
+	//Getters and Setters
 	public HashMap<String,Scene> getScenes(){
 		return scenes;
 	}
@@ -71,6 +72,10 @@ public class SceneManager {
 		}
 	}
 	
+	/**
+	 * Add a scene to the scene ArrayList
+	 * @param scene to be added
+	 */
 	public void addScene(Scene scene) {
 		scenes.put(scene.getSceneName(), scene);
 	}

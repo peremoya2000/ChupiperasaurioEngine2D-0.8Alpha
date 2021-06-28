@@ -58,7 +58,6 @@ public class Engine extends JFrame{
 	public void loadScene(Scene s) {
 		viewer.loadScene(s);
 		gHandler.loadScene(s);
-	}
-	
+	}	
 
 }

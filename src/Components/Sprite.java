@@ -18,7 +18,7 @@ public class Sprite extends Component {
 	//These two values are not saved but generated from the file
 	private transient BufferedImage image,ogImage;
 	private File file;
-	//half width and height
+	//xSize:half width, ySize:half height
 	private short xSize,ySize,ogWidth,ogHeight, currFinalRot;
 	
 	public Sprite(GameObject owner) {super(owner);}
@@ -153,6 +153,4 @@ public class Sprite extends Component {
 		}
 	}
 	
-	
-
 }

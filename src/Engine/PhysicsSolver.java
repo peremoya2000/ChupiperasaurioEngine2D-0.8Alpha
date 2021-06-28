@@ -3,7 +3,10 @@ package Engine;
 import java.util.ArrayList;
 
 import Components.Collision;
-
+/**
+ * Handles the collision checking and position correction
+ * @author Usuario
+ */
 public class PhysicsSolver{
 	private ArrayList<GameObject> objects;
 	Collision o1;

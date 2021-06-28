@@ -9,6 +9,10 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/**
+ * Input class to register mouse and keyboard and make it accessible to all classes through static methods.
+ * @author Pere
+ */
 public class Input implements KeyListener, MouseListener, FocusListener{
 	private static boolean[] keys;
 	static boolean mouseLeftPressed,click;
@@ -90,8 +94,6 @@ public class Input implements KeyListener, MouseListener, FocusListener{
 		}
 	}
 	
-	@Override
-	public void focusGained(FocusEvent e) {}
 	/**
 	 * Invalidate inputs if window focus is lost
 	 */
@@ -103,5 +105,8 @@ public class Input implements KeyListener, MouseListener, FocusListener{
 		mouseLeftPressed=false;
 		click=false;
 	}
+	
+	@Override
+	public void focusGained(FocusEvent e) {}
 
 }

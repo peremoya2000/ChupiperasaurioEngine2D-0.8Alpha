@@ -21,10 +21,10 @@ import Engine.Transform;
  * @author Pere
  */
 public class AnimatedSprite extends Component {
-	//These two values are not saved but generated from the file
+	//These two arrays are not saved but generated from the file
 	private transient BufferedImage[] images,ogImages;
 	private File file;
-	//half width and height
+	//xSize:half width, ySize:half height
 	short xSize,ySize,ogWidth,ogHeight,index,animLength,currFinalRot;
 	float delay,delta;
 	long lastTime;
@@ -163,7 +163,7 @@ public class AnimatedSprite extends Component {
 			y=(y-up)*yScale;
 			
 			if (camRot!=0) {
-				//ROtate coordinates around screen center
+				//Rotate coordinates around screen center
 				double sin, cos;
 				sin= Math.sin(Math.toRadians(camRot));
 				cos= Math.cos(Math.toRadians(camRot));
@@ -190,11 +190,8 @@ public class AnimatedSprite extends Component {
 			if(delta>delay) {
 				delta=0;
 				if (++index>=animLength)index=0;
-			}
-						
+			}						
 		}
 	}
 	
-	
-
 }

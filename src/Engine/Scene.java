@@ -32,6 +32,7 @@ public class Scene implements Serializable{
 		if(camera==null)camera=new Camera();
 	}
 	
+	//Getters and Setters
 	public ArrayList<GameObject> getObjects(){
 		return objects;
 	}	

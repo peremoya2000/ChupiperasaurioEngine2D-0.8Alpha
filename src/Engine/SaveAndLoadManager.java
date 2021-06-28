@@ -1,5 +1,4 @@
 package Engine;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -8,6 +7,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 
+/**
+ * Class to manage saving and loading and make it accessible to all classes through static methods.
+ * @author Pere
+ */
 public class SaveAndLoadManager {
 	private static SceneManager sceneManager;
 	public SaveAndLoadManager(SceneManager sm) {

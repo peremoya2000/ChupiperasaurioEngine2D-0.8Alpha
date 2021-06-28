@@ -37,7 +37,7 @@ public class Collision extends Component {
 		}
 	}
 	
-		
+	//Getters and Setters	
 	public boolean getCollision() {
 		return collision;
 	}
@@ -68,7 +68,6 @@ public class Collision extends Component {
 	public void setShape(CollisionShape shape) {
 		this.shape = shape;
 	}
-
 	public Transform getTransform() {
 		return transform;
 	}

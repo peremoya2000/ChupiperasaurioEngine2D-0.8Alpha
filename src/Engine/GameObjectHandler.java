@@ -58,6 +58,7 @@ public class GameObjectHandler implements Runnable{
 		this.objects=newScene.getObjects();
 	}
 	
+	//Tick loop
 	@Override
 	public void run() {
 		long now;

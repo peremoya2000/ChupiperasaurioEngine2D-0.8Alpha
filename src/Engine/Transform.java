@@ -44,6 +44,7 @@ public class Transform implements Serializable{
 			this.xSize=width/2;
 			this.ySize=height/2;
 		}
+		
 		public float getX() {
 			return x;
 		}
@@ -92,38 +93,35 @@ public class Transform implements Serializable{
 			this.depth = (short) depth;
 		}
 		
-		public void add(float x, float y) {
+		//Vectorial operations
+		public Transform add(float x, float y) {
 			this.x+=x;
 			this.y+=y;
-		}
-		
-		
-		
-		public void add(Transform t) {
+			return this;
+		}				
+		public Transform add(Transform t) {
 			this.x+=t.getX();
 			this.y+=t.getY();
+			return this;
 		}
-		public void subtract(Transform t) {
+		public Transform subtract(Transform t) {
 			this.x-=t.getX();
 			this.y-=t.getY();
+			return this;
 		}
-		
 		public Transform scale(float scale) {
 			this.x*=scale;
 			this.y*=scale;
 			return this;
-		}
-		
+		}		
 		public float getDistance(Transform other) {
 			float xdif=other.getX()-x;
 			float ydif=other.getY()-y;
 			return (float) (Math.sqrt(xdif*xdif+ydif*ydif));			
-		}
-		
+		}		
 		public float getLength() {
 			return (float) (Math.sqrt(x*x+y*y));
-		}
-		
+		}		
 		public Transform normalize() {
 			float l=this.getLength();
 			if (l!=1) {
