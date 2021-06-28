@@ -1,7 +1,10 @@
 package Engine;
 
 import java.io.Serializable;
-
+/**
+ * Encapsulates the coordinates, rotation and size of an object. It can also be used to  perform 2d vector calculations.
+ * @author Pere
+ */
 @SuppressWarnings("serial")
 public class Transform implements Serializable{
 		private float x,y;
@@ -57,10 +60,14 @@ public class Transform implements Serializable{
 		public void setY(float y) {
 			this.y = y;
 		}
+		
+		/**
+		 * Gets the rotation in degrees
+		 * @return rotation in degrees
+		 */
 		public short getRotation() {
 			return (short) (rotation%360);
 		}
-		
 		/**
 		 * Set rotation.
 		 * @param rotation in degrees
@@ -94,34 +101,68 @@ public class Transform implements Serializable{
 		}
 		
 		//Vectorial operations
+		/**
+		 * Adds the two values to its x and y values
+		 * @param x value to add
+		 * @param y value to add
+		 * @return itself
+		 */
 		public Transform add(float x, float y) {
 			this.x+=x;
 			this.y+=y;
 			return this;
-		}				
+		}
+		/**
+		 * Adds the input transform from itself
+		 * @param t transform that is added
+		 * @return itself
+		 */
 		public Transform add(Transform t) {
 			this.x+=t.getX();
 			this.y+=t.getY();
 			return this;
 		}
+		/**
+		 * Subtracts the input transform from itself
+		 * @param t transform to subtract
+		 * @return itself
+		 */
 		public Transform subtract(Transform t) {
 			this.x-=t.getX();
 			this.y-=t.getY();
 			return this;
 		}
+		/**
+		 * Scales the vector according to the input
+		 * @param scale value to scale the transforms position vector to
+		 * @return itself
+		 */
 		public Transform scale(float scale) {
 			this.x*=scale;
 			this.y*=scale;
 			return this;
-		}		
+		}
+		/**
+		 * Calculates the distance between two points
+		 * @param other transform to calculate the distance to
+		 * @return Distance between itself and the input transform
+		 */
 		public float getDistance(Transform other) {
 			float xdif=other.getX()-x;
 			float ydif=other.getY()-y;
 			return (float) (Math.sqrt(xdif*xdif+ydif*ydif));			
-		}		
+		}
+		/**
+		 * Calculates the length of the transforms 2d vector
+		 * @return Length of the 2d vector
+		 */
 		public float getLength() {
 			return (float) (Math.sqrt(x*x+y*y));
-		}		
+		}
+		/**
+		 * Normalizes the 2d vector to have length 1
+		 * @return itself
+		 */
 		public Transform normalize() {
 			float l=this.getLength();
 			if (l!=1) {

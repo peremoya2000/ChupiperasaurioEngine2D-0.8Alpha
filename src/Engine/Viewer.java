@@ -53,7 +53,7 @@ public class Viewer extends JPanel implements Runnable{
 	
 	/**
 	 * Tell the renderer to stop or to render
-	 * @param render
+	 * @param render set whether the viewer can render an image or not
 	 */
 	public void setRender(boolean render) {
 		this.render = render;

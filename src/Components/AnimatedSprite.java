@@ -15,11 +15,11 @@ import Engine.Camera;
 import Engine.GameObject;
 import Engine.Transform;
 
-@SuppressWarnings("serial")
 /**
  * Version of the sprite component that takes a GIF file and displays it. Certain GIF compression formats can produce visual glitches.
  * @author Pere
  */
+@SuppressWarnings("serial")
 public class AnimatedSprite extends Component {
 	//These two arrays are not saved but generated from the file
 	private transient BufferedImage[] images,ogImages;
@@ -33,8 +33,9 @@ public class AnimatedSprite extends Component {
 	
 	/**
 	 * Constructor
-	 * @param path to image file with name and extension
+	 * @param filePath path to image file with name and extension
 	 * @param matchCollision Whether to show the sprite with the same size as the collision box(if true) or use the images original size(if false)
+	 * @param fps the speed at which the animation has to run at
 	 * @param owner (usually, "this")
 	 */
 	public AnimatedSprite(String filePath, boolean matchCollision, float fps, GameObject owner) {

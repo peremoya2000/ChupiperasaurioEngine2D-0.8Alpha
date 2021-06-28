@@ -17,7 +17,10 @@ public class PhysicsSolver{
 		this.objects= o;
 	}
 	
-	//Called inside the gameplay loop
+	/**
+	 * Called inside the gameplay loop
+	 * @param o input GameObject
+	 */
 	public void physicsTick(GameObject o) {
 		o1=(Collision) o.getComponent("Collision");
 		Collision o2;

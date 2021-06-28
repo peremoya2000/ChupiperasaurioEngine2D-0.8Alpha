@@ -11,7 +11,10 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 import Engine.GameObject;
-
+/**
+ * Contains and manages multiple sounds you can add or delete
+ * @author Usuario
+ */
 @SuppressWarnings("serial")
 public class Sound extends Component {
 	//SOUNDS MUST BE .WAV

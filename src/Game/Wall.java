@@ -5,7 +5,10 @@ import Components.CollisionShape;
 import Components.Sprite;
 import Engine.GameObject;
 import Engine.Transform;
-//Demo class, can be deleted
+/**
+ * Demo class, can be deleted
+ * @author Pere
+ */
 @SuppressWarnings("serial")
 public class Wall extends GameObject {
 	public Wall(int x, int y) {

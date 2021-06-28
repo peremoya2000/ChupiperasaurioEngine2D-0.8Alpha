@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 import Game.GameStart;
-
+/**
+ * Main class
+ * @author Pere
+ */
 public class Engine extends JFrame{
 	private static final long serialVersionUID = 1L;
 	private ArrayList<GameObject> objects;

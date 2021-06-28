@@ -3,6 +3,11 @@ package Components;
 import Engine.GameObject;
 import Engine.Transform;
 
+/**
+ * Provides an object of collisions according to a collision shape and its transform
+ * @author Pere
+ *
+ */
 @SuppressWarnings("serial")
 public class Collision extends Component {
 	//This represents half the width and the height, taken from the transform
@@ -19,7 +24,7 @@ public class Collision extends Component {
 	 * Full constructor
 	 * @param shape of the collision (enum)
 	 * @param moves determines if the object can move or not
-	 * @param owner
+	 * @param owner Owner GameObject
 	 */
 	public Collision(CollisionShape shape, boolean moves, GameObject owner) {
 		super(owner);

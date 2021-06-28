@@ -6,9 +6,10 @@ import java.util.HashMap;
 import Components.AnimatedSprite;
 import Components.Component;
 import Components.Sprite;
+
 /**
- * @author Pere
- * Class to override to create any game class.
+ * Class to override to create any game object class. Which means any object on the game
+ * @author Usuario
  */
 @SuppressWarnings("serial")
 public class GameObject implements Serializable{

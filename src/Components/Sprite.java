@@ -12,7 +12,10 @@ import javax.imageio.ImageIO;
 import Engine.Camera;
 import Engine.GameObject;
 import Engine.Transform;
-
+/**
+ * Gives the object a visible sprite that the drawing thread takes care of
+ * @author Pere
+ */
 @SuppressWarnings("serial")
 public class Sprite extends Component {
 	//These two values are not saved but generated from the file
@@ -25,7 +28,7 @@ public class Sprite extends Component {
 	
 	/**
 	 * Constructor
-	 * @param path to image file with name and extension
+	 * @param filePath path to image file with name and extension
 	 * @param matchCollision Whether to show the sprite with the same size as the collision box(if true) or use the images original size(if false)
 	 * @param owner (usually, "this")
 	 */

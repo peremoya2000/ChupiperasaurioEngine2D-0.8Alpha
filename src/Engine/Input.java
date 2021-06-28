@@ -95,7 +95,7 @@ public class Input implements KeyListener, MouseListener, FocusListener{
 	}
 	
 	/**
-	 * Invalidate inputs if window focus is lost
+	 * Invalidates inputs if window focus is lost (called by the engine)
 	 */
 	@Override
 	public void focusLost(FocusEvent e) {

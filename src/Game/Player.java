@@ -8,7 +8,10 @@ import Engine.Camera;
 import Engine.GameObject;
 import Engine.Input;
 import Engine.Transform;
-//Demo player, can be deleted
+/**
+ * Demo player class
+ * @author Pere
+ */
 @SuppressWarnings("serial")
 public class Player extends GameObject {
 	float xSpd,ySpd;

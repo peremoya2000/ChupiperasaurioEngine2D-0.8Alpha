@@ -36,7 +36,7 @@ public class GameObjectHandler implements Runnable{
 	}
 	/**
 	 * Start or stop the game loop
-	 * @param play
+	 * @param play whether to tick or finish ticking
 	 */
 	public void setPlay(boolean play) {
 		this.play = play;
@@ -52,7 +52,7 @@ public class GameObjectHandler implements Runnable{
 	
 	/**
 	 * Load a new object list
-	 * @param newScene
+	 * @param newScene to load
 	 */
 	public void loadScene(Scene newScene) {
 		this.objects=newScene.getObjects();

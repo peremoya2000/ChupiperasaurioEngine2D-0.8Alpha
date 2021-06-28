@@ -29,9 +29,16 @@ public class ResizerJob extends Job {
 		}
 	}
 	
+	/**
+	 * Called by the engine when a window  resize is needed
+	 */
 	public void managePetition() {
 		resizeNeeded=true;
 	}
+	/**
+	 * Returns if the engine is expecting a window resize
+	 * @return true if resize is necessary
+	 */
 	public boolean getResizeNeeded() {
 		return resizeNeeded;
 	}
