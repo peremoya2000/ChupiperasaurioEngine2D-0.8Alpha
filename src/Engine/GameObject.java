@@ -8,7 +8,7 @@ import Components.Component;
 import Components.Sprite;
 
 /**
- * Class to override to create any game object class. Which means any object on the game
+ * Class to override to create any game object class. Which means any object on the game.
  * @author Usuario
  */
 @SuppressWarnings("serial")

@@ -113,7 +113,7 @@ public class Transform implements Serializable{
 			return this;
 		}
 		/**
-		 * Adds the input transform from itself
+		 * Adds the input transform to itself
 		 * @param t transform that is added
 		 * @return itself
 		 */
