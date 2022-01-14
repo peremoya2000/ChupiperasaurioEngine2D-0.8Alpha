@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import Components.AnimatedSprite;
 import Components.Component;
+import Components.PolySprite;
 import Components.Sprite;
 
 /**
@@ -66,6 +67,10 @@ public class GameObject implements Serializable{
 		if(animsprite!=null) {
 			animsprite.draw(g, camera, sWidth, sHeight);
 		}
+		PolySprite polysprite= (PolySprite) components.get("PolySprite");
+		if(polysprite!=null) {
+			polysprite.draw(g, camera, sWidth, sHeight);
+		}
 	}
 	
 	/**
@@ -106,6 +111,14 @@ public class GameObject implements Serializable{
 		Sprite sprite= (Sprite) components.get("Sprite");
 		if(sprite!=null) {
 			sprite.setRotation(rot);
+		}
+		PolySprite polysprite= (PolySprite) components.get("PolySprite");
+		if(polysprite!=null) {
+			polysprite.setRotation(rot);
+		}
+		AnimatedSprite animatedsprite= (AnimatedSprite) components.get("AnimatedSprite");
+		if(animatedsprite!=null) {
+			animatedsprite.setRotation(rot);
 		}
 	}
 	

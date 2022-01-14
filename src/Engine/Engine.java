@@ -15,6 +15,7 @@ public class Engine extends JFrame{
 	private SceneManager sceneManager;
 	private Viewer viewer;
 	private GameObjectHandler gHandler;
+	private GameStart start;
 	//Engine instance
 	public static void main(String[] args) {
 		@SuppressWarnings("unused")
@@ -42,7 +43,7 @@ public class Engine extends JFrame{
         this.setFocusable(true);
         this.requestFocus();
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        GameStart start = new GameStart(sceneManager,cam);
+        start = new GameStart(sceneManager,cam);
         viewer.init();
         //Screen resize event
         this.addComponentListener(new ComponentAdapter() {  
@@ -61,6 +62,7 @@ public class Engine extends JFrame{
 	public void loadScene(Scene s) {
 		viewer.loadScene(s);
 		gHandler.loadScene(s);
+		start.onSceneLoad();
 	}	
 
 }

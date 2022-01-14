@@ -30,7 +30,6 @@ public class Player extends GameObject {
 		ySpd-=Input.GetKey(KeyEvent.VK_W)	? 100 : 0;
 		transform.setX(transform.getX()+xSpd*delta);
 		transform.setY(transform.getY()+ySpd*delta);
-		//System.out.println(transform.getY());
 		camera.setCameraX(transform.getX());
 		camera.setCameraY(transform.getY());
 	}

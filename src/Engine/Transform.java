@@ -152,6 +152,18 @@ public class Transform implements Serializable{
 			float ydif=other.getY()-y;
 			return (float) (Math.sqrt(xdif*xdif+ydif*ydif));			
 		}
+		
+		/**
+		 * Calculates the Manhattan distance between two points. Less accurate but faster.
+		 * @param other transform to calculate the distance to
+		 * @return Distance between itself and the input transform
+		 */
+		public float getFastDistance(Transform other) {
+			float xdif=other.getX()-x;
+			float ydif=other.getY()-y;
+			return (float) (Math.abs(xdif)+Math.abs(ydif));			
+		}
+		
 		/**
 		 * Calculates the length of the transforms 2d vector
 		 * @return Length of the 2d vector

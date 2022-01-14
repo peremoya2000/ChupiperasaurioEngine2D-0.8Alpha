@@ -87,13 +87,6 @@ public class Scene implements Serializable{
 	public void remove(GameObject obj) {
 		objects.remove(obj);
 	}
-	
-	/**
-	 * Called when a scene is loaded
-	 */
-	public void onLoad() {
-		
-	}
 
 }
 

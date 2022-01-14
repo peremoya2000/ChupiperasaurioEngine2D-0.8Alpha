@@ -46,7 +46,6 @@ public class SceneManager {
 		Scene t=scenes.get(name);
 		if (t!=null) {
 			scenes.put(loadedScene.getSceneName(), loadedScene);
-			t.onLoad();
 			loadedScene=t;
 			engine.loadScene(loadedScene);
 			return loadedScene;
@@ -60,7 +59,6 @@ public class SceneManager {
 	 */
 	public void reload() {
 		loadedScene=scenes.get(loadedScene.getSceneName());
-		loadedScene.onLoad();
 		engine.loadScene(loadedScene);
 		ArrayList<GameObject>objects=loadedScene.getObjects();
 		int length = objects.size();

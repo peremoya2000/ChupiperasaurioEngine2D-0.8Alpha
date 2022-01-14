@@ -16,7 +16,15 @@ public class GameStart {
 	public GameStart(SceneManager sceneManager, Camera camera) {
 		camera.setCameraTransform(new Transform(0,0,0,0,1280,720));
 		sceneManager.addObject(new Player(camera));
-		sceneManager.addObject(new Wall(100,200));
+		sceneManager.addObject(new Wall(100,300));
 		sceneManager.addObject(new Wall(-200,100));
+
+	}
+	
+	/**
+	 * Called when a scene is loaded.
+	 */
+	public void onSceneLoad() {
+		
 	}
 }

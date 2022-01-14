@@ -109,6 +109,7 @@ public class Viewer extends JPanel implements Runnable{
 					objects.get(i).draw(ig2d, camera, width, height);
 				}
 				vg2d.drawImage(img, 0, 0, null);
+				
 			}
 			//small wait, improves stability
 			try {
